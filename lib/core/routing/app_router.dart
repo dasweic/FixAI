@@ -15,7 +15,6 @@ import '../../features/admin/presentation/admin_complaint_details_screen.dart';
 import '../../features/admin/presentation/status_update_screen.dart';
 
 
-
 class AppRouter {
   static final router = GoRouter(
     initialLocation: '/',
@@ -37,7 +36,7 @@ class AppRouter {
 
       GoRoute(
         path: '/student-home',
-        builder: (context, state) => const StudentHomeScreen(),
+        builder: (context, state) => const StudentShellScreen(),
       ),
 
       GoRoute( 
