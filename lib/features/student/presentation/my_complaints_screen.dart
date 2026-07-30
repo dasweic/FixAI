@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../core/widgets/app_empty.dart';
 
 class MyComplaintsScreen extends StatelessWidget {
   const MyComplaintsScreen({super.key});

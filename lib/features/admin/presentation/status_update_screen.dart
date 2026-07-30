@@ -21,7 +21,7 @@ class _StatusUpdateScreenState extends State<StatusUpdateScreen> {
         child: Column(
           children: [
             DropdownButtonFormField<String>(
-              value: status,
+              initialValue: status,
               items: const [
                 DropdownMenuItem(
                   value: 'Pending',
