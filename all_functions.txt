@@ -1,0 +1,493 @@
+1. ai(prompt, model="gemma3:4b")
+Purpose
+
+AI se response lena.
+
+Input
+Prompt
+Output
+AI ka text response
+Use
+
+Ye tumhare project ka base function hai. Baaki saare functions isi ko use karte hain.
+
+2. normalize_complaint()
+Purpose
+
+Complaint ko clean aur normalize karna.
+
+Example
+
+Input
+
+fan 3 din se bilkul bekaar chal raha hai koi dekh hi nahi raha
+
+Output
+
+The ceiling fan has not been functioning properly for the past three days.
+
+Use
+Noise remove
+Grammar fix
+Better AI processing
+3. extract_keywords()
+Purpose
+
+Important keywords nikalna.
+
+Input
+
+Fan in room 204 is making sparks.
+
+Output
+
+[
+    "fan",
+    "room 204",
+    "sparks"
+]
+Use
+Search
+Duplicate Detection
+Dashboard
+Analytics
+4. classify_category()
+Purpose
+
+Complaint ki main category.
+
+Example
+
+Input
+
+Fan not working.
+
+Output
+
+Electrical
+
+Possible Categories
+
+Electrical
+Water
+Cleaning
+Civil
+Furniture
+Internet
+5. classify_subcategory()
+Purpose
+
+Category ke andar exact issue.
+
+Example
+
+Electrical
+
+↓
+
+Fan
+
+Example
+
+Electrical
+
+↓
+
+Fan
+
+Ya
+
+Water
+
+↓
+
+Leakage
+6. category_confidence()
+Purpose
+
+Category kitni accurate hai.
+
+Example
+
+Electrical
+
+0.96
+
+Admin ko confidence dikhega.
+
+7. generate_title()
+Purpose
+
+Professional title banana.
+
+Input
+
+fan not working room 201
+
+Output
+
+Ceiling Fan Not Working
+
+Database me title store hoga.
+
+8. generate_professional_description()
+Purpose
+
+Student language
+
+↓
+
+Professional language
+
+Example
+
+Input
+
+fan bahut kharab hai jaldi theek karo
+
+Output
+
+The ceiling fan is not functioning properly and requires maintenance.
+
+9. summarize_issue()
+Purpose
+
+1-line summary.
+
+Output
+
+Ceiling fan malfunction
+
+Useful
+
+Dashboard
+Notifications
+Search
+10. detect_safety_keywords()
+Purpose
+
+Danger detect karna.
+
+Example
+
+spark
+smoke
+fire
+gas
+electric shock
+
+Output
+
+[
+    "spark",
+    "smoke"
+]
+
+Useful
+
+Critical complaints.
+
+11. calculate_priority()
+Purpose
+
+Priority decide karna.
+
+Possible
+
+Low
+
+Medium
+
+High
+
+Critical
+
+Example
+
+Fire
+
+↓
+
+Critical
+
+Broken chair
+
+↓
+
+Medium
+
+Paint damage
+
+↓
+
+Low
+
+12. explain_priority()
+Purpose
+
+Admin ko batana
+
+Priority
+
+↓
+
+Kyun?
+
+Example
+
+{
+    "priority":"Critical",
+
+    "reason":"Electrical sparks detected.",
+
+    "matched_keywords":[
+        "spark"
+    ],
+
+    "recommended_action":"Immediate repair."
+}
+13. generate_embedding()
+Purpose
+
+Sentence
+
+↓
+
+Vector
+
+Example
+
+Fan not working
+
+↓
+
+[0.124,
+-0.554,
+...
+]
+
+Ye vector AI ko sentence ka meaning represent karta hai.
+
+Useful
+
+Duplicate detection
+Semantic Search
+14. compare_similarity()
+Purpose
+
+Do complaints kitni similar hain.
+
+Output
+
+0.91
+
+Range
+
+0
+
+↓
+
+1
+
+1
+
+↓
+
+Exactly same
+
+15. detect_duplicate()
+Purpose
+
+Complaint duplicate hai ya nahi.
+
+Output
+
+{
+    "duplicate":True,
+
+    "original_complaint_id":24,
+
+    "confidence":0.93
+}
+
+Useful
+
+Duplicate complaint avoid karna.
+
+16. rank_similar_complaints()
+Purpose
+
+Top 5 similar complaints.
+
+Output
+
+[
+    {
+        "id":41,
+        "confidence":0.97
+    },
+
+    {
+        "id":22,
+        "confidence":0.94
+    },
+
+    ...
+]
+
+Useful
+
+Previous complaints dekhna
+Analytics
+Suggestions
+17. recommend_department()
+Purpose
+
+Complaint kis department ko bhejni hai.
+
+Output
+
+Electrical Maintenance
+
+Examples
+
+Electrical
+
+↓
+
+Electrical Maintenance
+
+Cleaning
+
+↓
+
+Housekeeping
+
+Internet
+
+↓
+
+IT Support
+
+18. recommendation_confidence()
+Purpose
+
+Department recommendation kitni accurate hai.
+
+Output
+
+0.94
+
+Admin verify kar sakta hai.
+
+19. fallback_department()
+Purpose
+
+Agar AI fail ho jaaye.
+
+AI
+
+↓
+
+Failed
+
+↓
+
+Rules
+
+↓
+
+Department mil jaayega.
+
+Example
+
+Electrical
+
+↓
+
+Electrical Maintenance
+
+AI ki zarurat nahi.
+
+Complete Pipeline
+Student Complaint
+        │
+        ▼
+normalize_complaint()
+        │
+        ▼
+extract_keywords()
+        │
+        ▼
+classify_category()
+        │
+        ▼
+classify_subcategory()
+        │
+        ▼
+category_confidence()
+        │
+        ▼
+generate_title()
+        │
+        ▼
+generate_professional_description()
+        │
+        ▼
+summarize_issue()
+        │
+        ▼
+detect_safety_keywords()
+        │
+        ▼
+calculate_priority()
+        │
+        ▼
+explain_priority()
+        │
+        ▼
+generate_embedding()
+        │
+        ▼
+compare_similarity()
+        │
+        ▼
+detect_duplicate()
+        │
+        ▼
+rank_similar_complaints()
+        │
+        ▼
+recommend_department()
+        │
+        ▼
+recommendation_confidence()
+        │
+        ▼
+fallback_department()
+        │
+        ▼
+Save to Database
+        │
+        ▼
+Admin Dashboard
+Overall Result
+
+In 19 functions ki madad se tumhara system complaint ko:
+
+✔️ Clean karta hai.
+✔️ Keywords identify karta hai.
+✔️ Category aur subcategory detect karta hai.
+✔️ AI confidence score deta hai.
+✔️ Professional title aur description generate karta hai.
+✔️ One-line summary banata hai.
+✔️ Safety hazards detect karta hai.
+✔️ Priority assign karta hai aur uska reason explain karta hai.
+✔️ Semantic embedding generate karta hai.
+✔️ Similarity aur duplicate complaints detect karta hai.
+✔️ Top similar complaints rank karta hai.
+✔️ Sahi maintenance department recommend karta hai.
+✔️ Recommendation ki confidence batata hai.
+✔️ AI fail hone par rule-based fallback routing bhi provide karta hai.
+
+Ye architecture ek university, hostel, office ya campus complaint management system ke liye kaafi complete AI processing pipeline provide karta hai.
